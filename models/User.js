@@ -17,6 +17,13 @@ const UserSchema = new Schema({
     max: [60, "Name character too long... Dont write your entire family name."],
   },
 
+  lastname: {
+    type: String,
+    trim: true,
+    maxlength: 20,
+    default: "lastname",
+  },
+
   email: {
     type: String,
     required: [true, "Email field is required"],
@@ -27,6 +34,13 @@ const UserSchema = new Schema({
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
       "Please fill a valid email...",
     ],
+  },
+
+  location: {
+    type: String,
+    trim: true,
+    maxlength: 60,
+    default: "my city",
   },
 
   password: {
