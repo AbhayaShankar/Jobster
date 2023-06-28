@@ -17,7 +17,7 @@ const UserSchema = new Schema({
     max: [60, "Name character too long... Dont write your entire family name."],
   },
 
-  lastname: {
+  lastName: {
     type: String,
     trim: true,
     maxlength: 20,
