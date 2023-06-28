@@ -45,9 +45,22 @@ const login = async (req, res) => {
 
   const token = user.createJWT();
 
-  res.status(StatusCodes.OK).json({ user: { name: user.name }, token });
+  res.status(StatusCodes.OK).json({
+    user: {
+      email: user.email,
+      lastName: user.lastName,
+      location: user.location,
+      name: user.name,
+      token,
+    },
+  });
 
   res.send("Congoo");
 };
 
-module.exports = { register, login };
+const updateUser = async (req, res) => {
+  console.log(req.user);
+  console.log(req.body);
+};
+
+module.exports = { register, login, updateUser };
