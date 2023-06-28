@@ -27,6 +27,18 @@ const JobSchema = new Schema(
       ref: "User",
       required: [true, "Please provide User"],
     },
+
+    jobType: {
+      type: String,
+      enum: ["full-time", "part-time", "remote", "internship"],
+      default: "full-time",
+    },
+
+    jobLocation: {
+      type: String,
+      default: "Remote",
+      required: true,
+    },
   },
   { timestamps: true }
 );

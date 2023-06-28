@@ -1,7 +1,7 @@
-import { HiChevronDoubleLeft, HiChevronDoubleRight } from 'react-icons/hi';
-import Wrapper from '../assets/wrappers/PageBtnContainer';
-import { useSelector, useDispatch } from 'react-redux';
-import { changePage } from '../features/allJobs/allJobsSlice';
+import { HiChevronDoubleLeft, HiChevronDoubleRight } from "react-icons/hi";
+import Wrapper from "../assets/wrappers/PageBtnContainer";
+import { useSelector, useDispatch } from "react-redux";
+import { changePage } from "../features/allJobs/allJobsSlice";
 
 const PageBtnContainer = () => {
   const { numOfPages, page } = useSelector((store) => store.allJobs);
@@ -28,17 +28,17 @@ const PageBtnContainer = () => {
 
   return (
     <Wrapper>
-      <button type='button' className='prev-btn' onClick={prevPage}>
+      <button type="button" className="prev-btn" onClick={prevPage}>
         <HiChevronDoubleLeft />
         prev
       </button>
-      <div className='btn-container'>
+      <div className="btn-container">
         {pages.map((pageNumber) => {
           return (
             <button
-              type='button'
+              type="button"
               key={pageNumber}
-              className={pageNumber === page ? 'pageBtn active' : 'pageBtn'}
+              className={pageNumber === page ? "pageBtn active" : "pageBtn"}
               onClick={() => dispatch(changePage(pageNumber))}
             >
               {pageNumber}
@@ -46,7 +46,7 @@ const PageBtnContainer = () => {
           );
         })}
       </div>
-      <button type='button' className='next-btn' onClick={nextPage}>
+      <button type="button" className="next-btn" onClick={nextPage}>
         next
         <HiChevronDoubleRight />
       </button>
