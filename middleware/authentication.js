@@ -15,8 +15,9 @@ const auth = async (req, res, next) => {
 
   try {
     const payload = jwt.verify(token, process.env.JWT_SECRET);
+    const testUser = payload.userId === "649c8817e4b0daf8b2511831";
     // attach the user to the job routes...
-    req.user = { userId: payload.userId, name: payload.name };
+    req.user = { userId: payload.userId, testUser };
     next();
   } catch (error) {
     throw new UnauthenticatedError("Authentication Failed For Current User");
