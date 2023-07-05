@@ -30,7 +30,7 @@ const errorHandlerMiddleware = (err, req, res, next) => {
     customError.msg = `No Job found for id : ${err.value}`;
   }
 
-  return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ err });
+  // return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ err });
   return res.status(customError.statusCode).json({ msg: customError.msg });
 };
 
