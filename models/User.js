@@ -52,6 +52,16 @@ const UserSchema = new Schema({
 
 // this.isModifiedPaths()
 
+// pre save middleware on the UserSchema. It means that before saving a new user or updating an existing user in the database, this middleware function will be executed.
+
+/*
+if (!this.isModified("password")) return;: Inside the middleware function, it first checks if the password field of the user document has been modified. If it hasn't been modified, it means the user document is being saved or updated without changing the password. In this case, the function returns early without doing anything to the password field.
+
+const salt = await bcrypt.genSalt(10);: If the password field has been modified, the function proceeds to generate a salt using the bcrypt.genSalt() method. A salt is a random value that adds additional security when hashing passwords. The genSalt() method generates a salt with a cost factor of 10, which determines how computationally intensive the hashing process should be.
+
+this.password = await bcrypt.hash(this.password, salt);: After generating the salt, the function uses bcrypt.hash() to hash the user's password. The password value is replaced with its hash, making it more secure than storing the plain text password in the database.
+*/
+
 UserSchema.pre("save", async function () {
   // console.log(this.modifiedPaths());
   if (!this.isModified("password")) return;

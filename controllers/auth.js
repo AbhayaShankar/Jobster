@@ -2,6 +2,7 @@ const User = require("../models/User");
 const { StatusCodes } = require("http-status-codes");
 const { BadRequestError, UnauthenticatedError } = require("../errors");
 
+// Register User
 const register = async (req, res) => {
   const user = await User.create({ ...req.body });
   console.log(user);
@@ -19,6 +20,7 @@ const register = async (req, res) => {
   });
 };
 
+// Login user
 const login = async (req, res) => {
   const { email, password } = req.body;
 
@@ -58,6 +60,7 @@ const login = async (req, res) => {
   res.send("Congoo");
 };
 
+// Updating User
 const updateUser = async (req, res) => {
   const { email, name, lastName, location } = req.body;
   console.log(req.user);
