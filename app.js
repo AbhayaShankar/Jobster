@@ -1,5 +1,9 @@
+// for configuring and using .env variables
 require("dotenv").config();
+
+// package for errors
 require("express-async-errors");
+
 const path = require("path");
 
 // extra security packages
@@ -51,9 +55,11 @@ const port = process.env.PORT || 5000;
 
 const start = async () => {
   try {
+    // this log shows once start is invoked.
     console.log("Server running");
     await connectDB(process.env.MONGO_URI);
     app.listen(port, () =>
+      // this log shows up only once the connection is established.
       console.log(`Server is listening on port ${port}...`)
     );
   } catch (error) {
