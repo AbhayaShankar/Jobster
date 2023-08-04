@@ -8,9 +8,11 @@ const mongoose = require("mongoose");
 const moment = require("moment");
 
 const getAllJobs = async (req, res) => {
+  // Query params for filtering purpose
   const { search, status, jobType, sort } = req.query;
   console.log(req.query);
 
+  //
   const queryObject = {
     createdBy: req.user.userId,
   };
@@ -81,6 +83,9 @@ const getJob = async (req, res) => {
 const createJob = async (req, res) => {
   req.body.createdBy = req.user.userId;
   const job = await Job.create(req.body);
+
+  console.log("REQ BODY", req.body);
+  console.log("USER", req.user);
   // job = { ...job, job_id: job._id };
   res.status(StatusCodes.CREATED).json(job);
 };
