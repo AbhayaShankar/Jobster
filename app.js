@@ -31,7 +31,10 @@ const errorHandlerMiddleware = require("./middleware/error-handler");
 
 app.use(express.static(path.resolve(__dirname, "./client/build")));
 
+// this is used for displaying response after a route is sucessfully hit
+// Kind of like a body parser.
 app.use(express.json());
+
 //extra packages
 app.use(helmet());
 app.use(xss());

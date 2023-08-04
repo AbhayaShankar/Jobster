@@ -3,6 +3,8 @@ const { StatusCodes } = require("http-status-codes");
 const { BadRequestError, NotFoundError } = require("../errors");
 
 const mongoose = require("mongoose");
+
+// for formatting date
 const moment = require("moment");
 
 const getAllJobs = async (req, res) => {
