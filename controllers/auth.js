@@ -11,10 +11,10 @@ const register = async (req, res) => {
 
   res.status(StatusCodes.CREATED).json({
     user: {
-      email: user.email,
-      lastName: user.lastName,
-      location: user.location,
       name: user.name,
+      lastName: user.lastName,
+      email: user.email,
+      location: user.location,
       token,
     },
   });
@@ -49,10 +49,10 @@ const login = async (req, res) => {
 
   res.status(StatusCodes.OK).json({
     user: {
-      email: user.email,
-      lastName: user.lastName,
-      location: user.location,
       name: user.name,
+      lastName: user.lastName,
+      email: user.email,
+      location: user.location,
       token,
     },
   });
